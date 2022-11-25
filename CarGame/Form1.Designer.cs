@@ -161,9 +161,11 @@
             // gameover
             // 
             this.gameover.AutoSize = true;
-            this.gameover.Location = new System.Drawing.Point(145, 233);
+            this.gameover.BackColor = System.Drawing.Color.Gold;
+            this.gameover.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gameover.Location = new System.Drawing.Point(125, 233);
             this.gameover.Name = "gameover";
-            this.gameover.Size = new System.Drawing.Size(66, 15);
+            this.gameover.Size = new System.Drawing.Size(124, 23);
             this.gameover.TabIndex = 10;
             this.gameover.Text = "Game Over";
             // 
