@@ -25,6 +25,7 @@ namespace CarGame
             {
                 timer1.Enabled = false;
                 gameover.Visible = true;
+                startlabel.Visible = true;
             }
         }
         void Moveline(int speed)
@@ -106,20 +107,31 @@ namespace CarGame
             {
                 if (playercar.Left >= 10)
                 {
-                    playercar.Left += -carmoveside;
+                    if (carspeed > 0)
+                    {
+                        playercar.Left += -carmoveside;
+
+                    }
                 }
        
             }
+
              if (e.KeyCode == Keys.Right) // Auto fährt rechts
             { if (playercar.Right < 380)
                 {
-                    playercar.Left += carmoveside;
+                    if (carspeed > 0)
+                    {
+                        playercar.Left += carmoveside;
+                    }
                 }
             }
+
              if (e.KeyCode == Keys.Up) // Auto beschleunigt
             {
                 carspeed += 2;
+                enemyspeed += 2;
             }
+
             if (e.KeyCode == Keys.Down) // Auto bremst
             {
                 if (carspeed <= 0)
@@ -128,6 +140,14 @@ namespace CarGame
                     return;
                 }
                 carspeed += -2;
+                if (enemyspeed <= 2) return;
+                enemyspeed += -2;
+            }
+            if (e.KeyCode == Keys.Space)
+            {
+                timer1.Enabled = true;
+                gameover.Visible = false;
+                startlabel.Visible = false;
             }
         }
     }

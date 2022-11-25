@@ -42,6 +42,7 @@
             this.enemycar2 = new System.Windows.Forms.PictureBox();
             this.enemycar3 = new System.Windows.Forms.PictureBox();
             this.gameover = new System.Windows.Forms.Label();
+            this.startlabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -110,7 +111,6 @@
             // 
             // timer1
             // 
-            this.timer1.Enabled = true;
             this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
@@ -169,12 +169,24 @@
             this.gameover.TabIndex = 10;
             this.gameover.Text = "Game Over";
             // 
+            // startlabel
+            // 
+            this.startlabel.AutoSize = true;
+            this.startlabel.BackColor = System.Drawing.Color.Gold;
+            this.startlabel.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.startlabel.Location = new System.Drawing.Point(117, 257);
+            this.startlabel.Name = "startlabel";
+            this.startlabel.Size = new System.Drawing.Size(139, 23);
+            this.startlabel.TabIndex = 11;
+            this.startlabel.Text = "press space";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(384, 461);
+            this.Controls.Add(this.startlabel);
             this.Controls.Add(this.gameover);
             this.Controls.Add(this.enemycar3);
             this.Controls.Add(this.enemycar2);
@@ -186,8 +198,12 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(400, 500);
+            this.MinimumSize = new System.Drawing.Size(400, 500);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "CarGame";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -218,5 +234,6 @@
         private PictureBox enemycar2;
         private PictureBox enemycar3;
         private Label gameover;
+        private Label startlabel;
     }
 }
