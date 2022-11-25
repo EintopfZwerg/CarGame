@@ -51,7 +51,7 @@ namespace CarGame
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-             if (e.KeyCode == Keys.Left)
+             if (e.KeyCode == Keys.Left) // Auto fährt links
             {
                 if (playercar.Left >= 10)
                 {
@@ -59,17 +59,17 @@ namespace CarGame
                 }
        
             }
-             if (e.KeyCode == Keys.Right)
+             if (e.KeyCode == Keys.Right) // Auto fährt rechts
             { if (playercar.Right <= 390)
                 {
                     playercar.Left += carmoveside;
                 }
             }
-             if (e.KeyCode == Keys.Up)
+             if (e.KeyCode == Keys.Up) // Auto beschleunigt
             {
                 linemovespeed += 2;
             }
-            if (e.KeyCode == Keys.Down)
+            if (e.KeyCode == Keys.Down) // Auto bremst
             {
                 if (linemovespeed <= 0)
                 {
