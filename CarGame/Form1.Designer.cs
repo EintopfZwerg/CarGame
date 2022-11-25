@@ -38,6 +38,10 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.playercar = new System.Windows.Forms.PictureBox();
+            this.enemycar1 = new System.Windows.Forms.PictureBox();
+            this.enemycar2 = new System.Windows.Forms.PictureBox();
+            this.enemycar3 = new System.Windows.Forms.PictureBox();
+            this.gameover = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -45,6 +49,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playercar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enemycar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enemycar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enemycar3)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -118,12 +125,58 @@
             this.playercar.TabIndex = 6;
             this.playercar.TabStop = false;
             // 
+            // enemycar1
+            // 
+            this.enemycar1.BackColor = System.Drawing.Color.Transparent;
+            this.enemycar1.Image = ((System.Drawing.Image)(resources.GetObject("enemycar1.Image")));
+            this.enemycar1.Location = new System.Drawing.Point(40, 170);
+            this.enemycar1.Name = "enemycar1";
+            this.enemycar1.Size = new System.Drawing.Size(35, 60);
+            this.enemycar1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.enemycar1.TabIndex = 7;
+            this.enemycar1.TabStop = false;
+            // 
+            // enemycar2
+            // 
+            this.enemycar2.BackColor = System.Drawing.Color.Transparent;
+            this.enemycar2.Image = ((System.Drawing.Image)(resources.GetObject("enemycar2.Image")));
+            this.enemycar2.Location = new System.Drawing.Point(214, 112);
+            this.enemycar2.Name = "enemycar2";
+            this.enemycar2.Size = new System.Drawing.Size(35, 60);
+            this.enemycar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.enemycar2.TabIndex = 8;
+            this.enemycar2.TabStop = false;
+            // 
+            // enemycar3
+            // 
+            this.enemycar3.BackColor = System.Drawing.Color.Transparent;
+            this.enemycar3.Image = ((System.Drawing.Image)(resources.GetObject("enemycar3.Image")));
+            this.enemycar3.Location = new System.Drawing.Point(293, 260);
+            this.enemycar3.Name = "enemycar3";
+            this.enemycar3.Size = new System.Drawing.Size(35, 60);
+            this.enemycar3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.enemycar3.TabIndex = 9;
+            this.enemycar3.TabStop = false;
+            // 
+            // gameover
+            // 
+            this.gameover.AutoSize = true;
+            this.gameover.Location = new System.Drawing.Point(145, 233);
+            this.gameover.Name = "gameover";
+            this.gameover.Size = new System.Drawing.Size(66, 15);
+            this.gameover.TabIndex = 10;
+            this.gameover.Text = "Game Over";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(384, 461);
+            this.Controls.Add(this.gameover);
+            this.Controls.Add(this.enemycar3);
+            this.Controls.Add(this.enemycar2);
+            this.Controls.Add(this.enemycar1);
             this.Controls.Add(this.playercar);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
@@ -141,7 +194,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playercar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enemycar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enemycar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enemycar3)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -155,5 +212,9 @@
         private PictureBox pictureBox6;
         private System.Windows.Forms.Timer timer1;
         private PictureBox playercar;
+        private PictureBox enemycar1;
+        private PictureBox enemycar2;
+        private PictureBox enemycar3;
+        private Label gameover;
     }
 }

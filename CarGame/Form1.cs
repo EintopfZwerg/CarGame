@@ -2,16 +2,29 @@ namespace CarGame
 {
     public partial class Form1 : Form
     {
-        int linemovespeed = 6;
-        int carmoveside = 4;
+        int carspeed = 6;  // geschwindigkeit der Linien
+        int enemyspeed = 3;
+        int carmoveside = 6; // Auto seitwärtsbewegung
 
         public Form1()
         {
             InitializeComponent();
+            gameover.Visible = false;
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Moveline(linemovespeed); //Moveline(5); 
+            Moveline(carspeed); //Moveline(5); 
+            EnemyCar(enemyspeed);
+            Gameover();
+        }
+        
+        void Gameover()
+        {
+            if (playercar.Bounds.IntersectsWith(enemycar1.Bounds))
+            {
+                timer1.Enabled = false;
+                gameover.Visible = true;
+            }
         }
         void Moveline(int speed)
         {
@@ -48,6 +61,43 @@ namespace CarGame
             }
 
         }
+        Random r = new Random();
+        int x, y;
+        void EnemyCar(int speed)
+        {
+            if(enemycar1.Top >= 500)
+            {
+                x = r.Next(0, 200);
+                y = 0;
+                enemycar1.Location = new Point(x, y);
+                // enemycar1.Top = 0;
+            } else
+            {
+                enemycar1.Top += speed;
+            }
+            if (enemycar2.Top >= 500)
+            {
+                x = r.Next(200, 400);
+                y = 0;
+                enemycar2.Location = new Point(x, y);
+                // enemycar1.Top = 0;
+            }
+            else
+            {
+                enemycar2.Top += speed;
+            }
+            if (enemycar3.Top >= 500)
+            {
+                x = r.Next(0, 200);
+                y = 0;
+                enemycar3.Location = new Point(x, y);
+                // enemycar1.Top = 0;
+            }
+            else
+            {
+                enemycar3.Top += speed;
+            }
+        }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -60,23 +110,23 @@ namespace CarGame
        
             }
              if (e.KeyCode == Keys.Right) // Auto fährt rechts
-            { if (playercar.Right <= 390)
+            { if (playercar.Right < 380)
                 {
                     playercar.Left += carmoveside;
                 }
             }
              if (e.KeyCode == Keys.Up) // Auto beschleunigt
             {
-                linemovespeed += 2;
+                carspeed += 2;
             }
             if (e.KeyCode == Keys.Down) // Auto bremst
             {
-                if (linemovespeed <= 0)
+                if (carspeed <= 0)
                 {
-                    linemovespeed = 0;
+                    carspeed = 0;
                     return;
                 }
-                linemovespeed += -2;
+                carspeed += -2;
             }
         }
     }
