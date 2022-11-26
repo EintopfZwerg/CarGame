@@ -43,6 +43,12 @@
             this.enemycar3 = new System.Windows.Forms.PictureBox();
             this.gameover = new System.Windows.Forms.Label();
             this.startlabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.deathcounter = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.meter = new System.Windows.Forms.Label();
+            this.travelrecord = new System.Windows.Forms.Label();
+            this.travelrecordlabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -180,12 +186,85 @@
             this.startlabel.TabIndex = 11;
             this.startlabel.Text = "press space";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(200, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 20);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Death:";
+            // 
+            // deathcounter
+            // 
+            this.deathcounter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.deathcounter.AutoSize = true;
+            this.deathcounter.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.deathcounter.Location = new System.Drawing.Point(347, 9);
+            this.deathcounter.Name = "deathcounter";
+            this.deathcounter.Size = new System.Drawing.Size(18, 20);
+            this.deathcounter.TabIndex = 13;
+            this.deathcounter.Text = "0";
+            this.deathcounter.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(16, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 20);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Distance:";
+            // 
+            // meter
+            // 
+            this.meter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.meter.AutoSize = true;
+            this.meter.BackColor = System.Drawing.Color.Transparent;
+            this.meter.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.meter.Location = new System.Drawing.Point(156, 9);
+            this.meter.Name = "meter";
+            this.meter.Size = new System.Drawing.Size(18, 20);
+            this.meter.TabIndex = 15;
+            this.meter.Text = "0";
+            this.meter.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // travelrecord
+            // 
+            this.travelrecord.AutoSize = true;
+            this.travelrecord.BackColor = System.Drawing.Color.Gold;
+            this.travelrecord.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.travelrecord.Location = new System.Drawing.Point(214, 282);
+            this.travelrecord.Name = "travelrecord";
+            this.travelrecord.Size = new System.Drawing.Size(22, 23);
+            this.travelrecord.TabIndex = 16;
+            this.travelrecord.Text = "0";
+            // 
+            // travelrecordlabel
+            // 
+            this.travelrecordlabel.AutoSize = true;
+            this.travelrecordlabel.BackColor = System.Drawing.Color.Gold;
+            this.travelrecordlabel.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.travelrecordlabel.Location = new System.Drawing.Point(117, 282);
+            this.travelrecordlabel.Name = "travelrecordlabel";
+            this.travelrecordlabel.Size = new System.Drawing.Size(99, 23);
+            this.travelrecordlabel.TabIndex = 17;
+            this.travelrecordlabel.Text = "Record:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(384, 461);
+            this.Controls.Add(this.travelrecordlabel);
+            this.Controls.Add(this.travelrecord);
+            this.Controls.Add(this.meter);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.deathcounter);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.startlabel);
             this.Controls.Add(this.gameover);
             this.Controls.Add(this.enemycar3);
@@ -235,5 +314,11 @@
         private PictureBox enemycar3;
         private Label gameover;
         private Label startlabel;
+        private Label label1;
+        private Label deathcounter;
+        private Label label2;
+        private Label meter;
+        private Label travelrecord;
+        private Label travelrecordlabel;
     }
 }
