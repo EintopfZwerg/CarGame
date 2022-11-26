@@ -11,6 +11,8 @@ namespace CarGame
         int distancetimer = 0; // zur Steuerung der zurückgelegten distanz
         int distancerecord = 0; // Rekord der erreichten Distanz
         int dificulty = 1000; // 
+
+        int usemouse = 1 ;
         public Form1()
         {
             InitializeComponent();
@@ -20,11 +22,21 @@ namespace CarGame
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Moveline(carspeed);  
+            Moveline(carspeed);
+            if (usemouse == 1)
+            {
+                Movecarmouse();
+            }
             EnemyCar(enemyspeed);
             Distance(carspeed);
             Gameover();
             Dificulty(traveldistance);
+        }
+        void Movecarmouse()
+        {
+            
+            int windowLeft = Location.X;
+            playercar.Left = Cursor.Position.X -25 - windowLeft;
         }
         void Dificulty(int i)
         {
@@ -161,30 +173,32 @@ namespace CarGame
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-             if (e.KeyCode == Keys.Left || e.KeyCode == Keys.A) // Auto fährt links
+            if (usemouse == 0) 
             {
-                if (playercar.Left >= 10)
+                if (e.KeyCode == Keys.Left || e.KeyCode == Keys.A) // Auto fährt links
                 {
-                    if (carspeed > 0)
+                    if (playercar.Left >= 10)
                     {
-                        playercar.Left += -carmoveside;
-                        
+                        if (carspeed > 0)
+                        {
+                            playercar.Left += -carmoveside;
+                        }
+                    }
+
+                }
+                if (e.KeyCode == Keys.Right || e.KeyCode == Keys.D) // Auto fährt rechts
+                {
+                    if (playercar.Right < 380)
+                    {
+                        if (carspeed > 0)
+                        {
+                            playercar.Left += carmoveside;
+                        }
                     }
                 }
-
             }
 
-             if (e.KeyCode == Keys.Right || e.KeyCode == Keys.D) // Auto fährt rechts
-            { if (playercar.Right < 380)
-                {
-                    if (carspeed > 0)
-                    {
-                        playercar.Left += carmoveside;
-                    }
-                }
-            }
-
-             if (e.KeyCode == Keys.Up || e.KeyCode == Keys.W) // Auto beschleunigt
+            if (e.KeyCode == Keys.Up || e.KeyCode == Keys.W) // Auto beschleunigt
             {
                 carspeed += 2;
                 enemyspeed += 2;
