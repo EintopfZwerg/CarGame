@@ -64,6 +64,7 @@ namespace CarGame
             traveldistance = 0;
             carspeed = 6;
             enemyspeed = 3;
+            dificulty = 1000;
             enemycar1.Top= -100;
             enemycar2.Top= -120;
             enemycar3.Top= -150;

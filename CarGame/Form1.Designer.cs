@@ -124,7 +124,7 @@
             // 
             this.playercar.BackColor = System.Drawing.Color.Transparent;
             this.playercar.Image = ((System.Drawing.Image)(resources.GetObject("playercar.Image")));
-            this.playercar.Location = new System.Drawing.Point(64, 389);
+            this.playercar.Location = new System.Drawing.Point(139, 390);
             this.playercar.Name = "playercar";
             this.playercar.Size = new System.Drawing.Size(35, 60);
             this.playercar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
