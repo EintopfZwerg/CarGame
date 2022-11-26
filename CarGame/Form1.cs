@@ -10,6 +10,7 @@ namespace CarGame
         int traveldistance = 0; // erreichte Distanz
         int distancetimer = 0; // zur Steuerung der zurückgelegten distanz
         int distancerecord = 0; // Rekord der erreichten Distanz
+        int dificulty = 1000; // 
         public Form1()
         {
             InitializeComponent();
@@ -23,8 +24,17 @@ namespace CarGame
             EnemyCar(enemyspeed);
             Distance(carspeed);
             Gameover();
+            Dificulty(traveldistance);
         }
-        
+        void Dificulty(int i)
+        {
+            
+            if (i >dificulty)
+            {
+                enemyspeed++;
+                dificulty += 1000;
+            }
+        }
         void Gameover()
         {
             if (playercar.Bounds.IntersectsWith(enemycar1.Bounds) || playercar.Bounds.IntersectsWith(enemycar2.Bounds) || playercar.Bounds.IntersectsWith(enemycar3.Bounds))
