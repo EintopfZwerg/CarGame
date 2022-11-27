@@ -66,8 +66,20 @@ namespace CarGame
         void Movecarmouse()
         {
 
-            int windowLeft = Location.X;
-            playercar.Left = Cursor.Position.X - 25 - windowLeft;
+           int i = Location.X;
+           int carposition = Cursor.Position.X - 25 - i;
+            if (carposition <= 0)
+            {
+                playercar.Left = 0 ;
+            } 
+            else if (carposition >= 350)
+            {
+                playercar.Left = 350;
+            }
+            else
+            {
+                playercar.Left = carposition;
+            }
         }
         void Dificulty(int i)
         {
