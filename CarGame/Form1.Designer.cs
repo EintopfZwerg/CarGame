@@ -224,7 +224,7 @@
             this.meter.AutoSize = true;
             this.meter.BackColor = System.Drawing.Color.Transparent;
             this.meter.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.meter.Location = new System.Drawing.Point(156, 9);
+            this.meter.Location = new System.Drawing.Point(139, 9);
             this.meter.Name = "meter";
             this.meter.Size = new System.Drawing.Size(18, 20);
             this.meter.TabIndex = 15;

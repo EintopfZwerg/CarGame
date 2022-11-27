@@ -1,0 +1,12 @@
+-Optionsmneü
+	-Maussteuerung an/aus
+	-Geschwindigkeit 
+	-Cheatmode
+-Coins sammeln (extraleben?)
+-Rekorde speichern in datei (und zurücksetzen)
+
+-Extra gegner
+
+
+- to lean:
+try catch block anguggn
