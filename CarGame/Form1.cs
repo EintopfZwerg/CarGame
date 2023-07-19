@@ -1,18 +1,24 @@
+using System.IO;
+
 namespace CarGame
 {
+
     // https://www.youtube.com/watch?v=xyggRDkoOwU&t=1485s
     public partial class Form1 : Form
     {
+
         static string gametitel = "CarGameV0.3";
         string filepath = System.Reflection.Assembly.GetExecutingAssembly().Location + ".txt"; // Pfad der exe datei
-        int carspeed = 6;  // geschwindigkeit der Linien
-        int enemyspeed = 3;
-        int carmoveside = 8; // Auto seitwärtsbewegung
-        int death = 0;        // Anzahl tode
+        int carspeed = 6;       // geschwindigkeit der Linien
+        int enemyspeed = 3;     // geschwindigkeit der Gegnerischen Autos
+        int carmoveside = 8;    // Auto seitwärtsbewegung
+        int coinspeed = 2;
+        int coins = 0;          // Anzahl eingesammelter Coins
+        int death = 0;          // Anzahl tode
         int traveldistance = 0; // erreichte Distanz
-        int distancetimer = 0; // zur Steuerung der zurückgelegten distanz
+        int distancetimer = 0;  // zur Steuerung der zurückgelegten distanz
         int distancerecord = 0; // Rekord der erreichten Distanz
-        int dificulty = 1000; // Entfernung nach der sich die Geschwindigkeit erhöht
+        int dificulty = 1000;   // Entfernung nach der sich die Geschwindigkeit erhöht
 
         int usemouse = 1;
         public Form1()
@@ -24,7 +30,7 @@ namespace CarGame
             gameover.Visible = false;
             travelrecord.Visible = false;
             travelrecordlabel.Visible = false;
-            
+
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -34,7 +40,9 @@ namespace CarGame
                 Movecarmouse();
             }
             EnemyCar(enemyspeed);
+            Coin(coinspeed);
             Distance(carspeed);
+            CoinIntersect();
             Gameover();
             Dificulty(traveldistance);
         }
@@ -55,23 +63,23 @@ namespace CarGame
 
                 string line = sr.ReadLine();
                 distancerecord = Convert.ToInt32(line);
-                travelrecord.Text =  Convert.ToString(distancerecord);
+                travelrecord.Text = Convert.ToString(distancerecord);
                 sr.Close();
             }
             catch
             {
-
+                System.Console.WriteLine("Lesefehler der Record Datei");
             }
         }
         void Movecarmouse()
         {
 
-           int i = Location.X;
-           int carposition = Cursor.Position.X - 25 - i;
+            int i = Location.X;
+            int carposition = Cursor.Position.X - 25 - i;
             if (carposition <= 0)
             {
-                playercar.Left = 0 ;
-            } 
+                playercar.Left = 0;
+            }
             else if (carposition >= 350)
             {
                 playercar.Left = 350;
@@ -212,7 +220,31 @@ namespace CarGame
                 enemycar3.Top += speed;
             }
         }
+        void Coin(int speed)
+        {
+            Random r = new Random();
+            int x, y;
+            if (coin.Top >= 500)
+            {
+                x = r.Next(0, 200);
+                y = r.Next(-200, -100);
+                coin.Location = new Point(x, y);
+            }
+            else
+            {
+                coin.Top += speed;
+            }
+        }
+        void CoinIntersect()
+        {
+            if (playercar.Bounds.IntersectsWith(coin.Bounds))
+            {
+                coin.Location = new Point(500, 500);
+                coins++;
+                coincounter.Text = Convert.ToString(coins);
 
+            }
+        }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (usemouse == 0)
@@ -244,6 +276,7 @@ namespace CarGame
             {
                 carspeed += 2;
                 enemyspeed += 2;
+                coinspeed += 2;
             }
 
             if (e.KeyCode == Keys.Down || e.KeyCode == Keys.S) // Auto bremst
@@ -256,6 +289,7 @@ namespace CarGame
                 carspeed += -2;
                 if (enemyspeed <= 2) return;
                 enemyspeed += -2;
+                coinspeed += -2;
             }
             if (e.KeyCode == Keys.Space)
             {
