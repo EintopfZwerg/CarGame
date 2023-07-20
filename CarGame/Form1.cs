@@ -350,6 +350,12 @@ namespace CarGame
                     return;
                 }
             }
+            if (e.KeyCode == Keys.R)
+            {
+                distancerecord = 0;
+                Writerecord();
+                Readrecord();
+            }
         }
 
     }
