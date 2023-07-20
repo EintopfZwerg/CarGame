@@ -1,0 +1,4 @@
+-Car kollisionen verhindern
+-funktion für Coins einfügen
+	verhindert steigen des schwierigkeitsgrades?
+	

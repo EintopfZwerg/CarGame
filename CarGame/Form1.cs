@@ -215,9 +215,15 @@ namespace CarGame
             int x, y;
             if (enemycar1.Top >= 500)
             {
-                x = r.Next(0, 200);
+                x = r.Next(0, 400);
                 y = r.Next(-200, -100);
                 enemycar1.Location = new Point(x, y);
+                while (enemycar1.Bounds.IntersectsWith(enemycar2.Bounds) || enemycar1.Bounds.IntersectsWith(enemycar3.Bounds))
+                {
+                    x = r.Next(0, 400);
+                    y = r.Next(-200, -100);
+                    enemycar1.Location = new Point(x, y);
+                }
 
             }
             else
@@ -229,7 +235,12 @@ namespace CarGame
                 x = r.Next(200, 400);
                 y = r.Next(-200, -100);
                 enemycar2.Location = new Point(x, y);
-
+                while (enemycar2.Bounds.IntersectsWith(enemycar1.Bounds) || enemycar2.Bounds.IntersectsWith(enemycar3.Bounds))
+                {
+                    x = r.Next(0, 400);
+                    y = r.Next(-200, -100);
+                    enemycar2.Location = new Point(x, y);
+                }
             }
             else
             {
@@ -240,7 +251,12 @@ namespace CarGame
                 x = r.Next(0, 200);
                 y = r.Next(-200, -100);
                 enemycar3.Location = new Point(x, y);
-
+                while (enemycar3.Bounds.IntersectsWith(enemycar1.Bounds) || enemycar3.Bounds.IntersectsWith(enemycar2.Bounds))
+                {
+                    x = r.Next(0, 400);
+                    y = r.Next(-200, -100);
+                    enemycar3.Location = new Point(x, y);
+                }
             }
             else
             {
