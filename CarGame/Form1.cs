@@ -1,4 +1,6 @@
 using System.IO;
+using System.Media;
+using System.Windows.Media;
 
 namespace CarGame
 {
@@ -31,8 +33,13 @@ namespace CarGame
             travelrecord.Visible = false;
             travelrecordlabel.Visible = false;
 
+            SoundPlayer player2 = new SoundPlayer("Sounds\\music.wav");
+            player2.PlayLooping();
+
+            //Play(Application.StartupPath + "Sounds\\music.wav");
         }
-        private void timer1_Tick(object sender, EventArgs e)
+        
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             Moveline(carspeed);
             if (usemouse == 1)
@@ -45,6 +52,12 @@ namespace CarGame
             CoinIntersect();
             Gameover();
             Dificulty(traveldistance);
+        }
+        void Play(string audioPath)
+        {
+            MediaPlayer myPlayer = new MediaPlayer();
+            myPlayer.Open(new System.Uri(audioPath));
+            myPlayer.Play();
         }
         void Writerecord()
         {
@@ -112,6 +125,8 @@ namespace CarGame
                 travelrecord.Visible = true;
                 if (traveldistance > distancerecord)
                 {
+                    Play(Application.StartupPath + "Sounds\\fanfare.wav");
+
                     distancerecord = traveldistance;
                     travelrecord.Text = Convert.ToString(distancerecord);
                     Writerecord();
@@ -126,8 +141,11 @@ namespace CarGame
             travelrecordlabel.Visible = false;
             travelrecord.Visible = false;
             traveldistance = 0;
+            coins = 0;
+            coincounter.Text = Convert.ToString(coins);
             carspeed = 6;
             enemyspeed = 3;
+            coinspeed = 2;
             dificulty = 1000;
             enemycar1.Top = -100;
             enemycar2.Top = -120;
@@ -242,7 +260,7 @@ namespace CarGame
                 coin.Location = new Point(500, 500);
                 coins++;
                 coincounter.Text = Convert.ToString(coins);
-
+                Play(Application.StartupPath + "Sounds\\collectcoin.wav");
             }
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -294,8 +312,9 @@ namespace CarGame
             if (e.KeyCode == Keys.Space)
             {
                 Restart();
-
+               
             }
         }
+        
     }
 }

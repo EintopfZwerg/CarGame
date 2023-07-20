@@ -122,7 +122,7 @@
             // timer1
             // 
             timer1.Interval = 10;
-            timer1.Tick += timer1_Tick;
+            timer1.Tick += Timer1_Tick;
             // 
             // playercar
             // 
