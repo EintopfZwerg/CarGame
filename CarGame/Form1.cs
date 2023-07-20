@@ -9,7 +9,7 @@ namespace CarGame
     public partial class Form1 : Form
     {
 
-        static string gametitel = "CarGameV0.4";
+        static string gametitel = "CarGameV0.4.1";
         string filepath = System.Reflection.Assembly.GetExecutingAssembly().Location + ".txt"; // Pfad der exe datei
         int carspeed = 6;       // geschwindigkeit der Linien
         int enemyspeed = 3;     // geschwindigkeit der Gegnerischen Autos
