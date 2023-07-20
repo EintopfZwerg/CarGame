@@ -21,6 +21,10 @@ namespace CarGame
         int distancetimer = 0;  // zur Steuerung der zurückgelegten distanz
         int distancerecord = 0; // Rekord der erreichten Distanz
         int dificulty = 1000;   // Entfernung nach der sich die Geschwindigkeit erhöht
+        private SoundPlayer player = new SoundPlayer("Sounds\\music.wav");
+
+        int playmusic = 0;
+        int playsounds = 0;
 
         int usemouse = 1;
         public Form1()
@@ -32,13 +36,8 @@ namespace CarGame
             gameover.Visible = false;
             travelrecord.Visible = false;
             travelrecordlabel.Visible = false;
-
-            SoundPlayer player2 = new SoundPlayer("Sounds\\music.wav");
-            player2.PlayLooping();
-
-            //Play(Application.StartupPath + "Sounds\\music.wav");
         }
-        
+
         private void Timer1_Tick(object sender, EventArgs e)
         {
             Moveline(carspeed);
@@ -123,7 +122,7 @@ namespace CarGame
                 startlabel.Visible = true;
                 travelrecordlabel.Visible = true;
                 travelrecord.Visible = true;
-                if (traveldistance > distancerecord)
+                if (traveldistance > distancerecord & playsounds == 1)
                 {
                     Play(Application.StartupPath + "Sounds\\fanfare.wav");
 
@@ -260,7 +259,10 @@ namespace CarGame
                 coin.Location = new Point(500, 500);
                 coins++;
                 coincounter.Text = Convert.ToString(coins);
-                Play(Application.StartupPath + "Sounds\\collectcoin.wav");
+                if (playsounds == 1)
+                {
+                    Play(Application.StartupPath + "Sounds\\collectcoin.wav");
+                }
             }
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -312,9 +314,43 @@ namespace CarGame
             if (e.KeyCode == Keys.Space)
             {
                 Restart();
-               
+
+            }
+            if (e.KeyCode == Keys.M)
+            {
+                if (playmusic == 0)
+                {
+                    playmusic = 1;
+                    labelmusic.Text = "ON";
+                    player.Play();
+                    return;
+                }
+                if (playmusic == 1)
+                {
+                    playmusic = 0;
+                    labelmusic.Text = "OFF";
+                    player.Stop();
+                    return;
+                }
+                
+            }
+            if (e.KeyCode == Keys.N)
+            {
+                if (playsounds == 0)
+                {
+                    playsounds = 1;
+                    labelsound.Text = "ON";
+                    Play(Application.StartupPath + "Sounds\\collectcoin.wav");
+                    return;
+                }
+                if (playsounds == 1) 
+                { 
+                    playsounds = 0;
+                    labelsound.Text = "OFF";
+                    return;
+                }
             }
         }
-        
+
     }
 }

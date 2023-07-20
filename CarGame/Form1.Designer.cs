@@ -52,6 +52,10 @@
             label3 = new Label();
             coincounter = new Label();
             coin = new PictureBox();
+            label4 = new Label();
+            labelmusic = new Label();
+            label6 = new Label();
+            labelsound = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -290,12 +294,60 @@
             coin.TabIndex = 20;
             coin.TabStop = false;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.Gold;
+            label4.Font = new Font("Showcard Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(117, 337);
+            label4.Name = "label4";
+            label4.Size = new Size(112, 23);
+            label4.TabIndex = 21;
+            label4.Text = "(M)Music:";
+            // 
+            // labelmusic
+            // 
+            labelmusic.AutoSize = true;
+            labelmusic.BackColor = Color.Gold;
+            labelmusic.Font = new Font("Showcard Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            labelmusic.Location = new Point(230, 337);
+            labelmusic.Name = "labelmusic";
+            labelmusic.Size = new Size(47, 23);
+            labelmusic.TabIndex = 22;
+            labelmusic.Text = "OFF";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = Color.Gold;
+            label6.Font = new Font("Showcard Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(117, 364);
+            label6.Name = "label6";
+            label6.Size = new Size(116, 23);
+            label6.TabIndex = 23;
+            label6.Text = "(N)Sound:";
+            // 
+            // labelsound
+            // 
+            labelsound.AutoSize = true;
+            labelsound.BackColor = Color.Gold;
+            labelsound.Font = new Font("Showcard Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            labelsound.Location = new Point(230, 364);
+            labelsound.Name = "labelsound";
+            labelsound.Size = new Size(47, 23);
+            labelsound.TabIndex = 24;
+            labelsound.Text = "OFF";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkGray;
             ClientSize = new Size(384, 461);
+            Controls.Add(labelsound);
+            Controls.Add(label6);
+            Controls.Add(labelmusic);
+            Controls.Add(label4);
             Controls.Add(coin);
             Controls.Add(coincounter);
             Controls.Add(label3);
@@ -363,5 +415,9 @@
         private Label label3;
         private Label coincounter;
         private PictureBox coin;
+        private Label label4;
+        private Label labelmusic;
+        private Label label6;
+        private Label labelsound;
     }
 }
