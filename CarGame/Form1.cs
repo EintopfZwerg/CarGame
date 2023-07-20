@@ -21,11 +21,13 @@ namespace CarGame
         int distancetimer = 0;  // zur Steuerung der zurückgelegten distanz
         int distancerecord = 0; // Rekord der erreichten Distanz
         int dificulty = 1000;   // Entfernung nach der sich die Geschwindigkeit erhöht
+        
         private SoundPlayer player = new SoundPlayer("Sounds\\music.wav");
 
         int playmusic = 0;
         int playsounds = 0;
 
+        int godmode = 0;
         int usemouse = 1;
         public Form1()
         {
@@ -36,6 +38,10 @@ namespace CarGame
             gameover.Visible = false;
             travelrecord.Visible = false;
             travelrecordlabel.Visible = false;
+
+            Controls.Add(playercar);
+            playercar.BackColor = System.Drawing.Color.Transparent;
+            playercar.BringToFront();
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -107,33 +113,37 @@ namespace CarGame
             if (i > dificulty)
             {
                 enemyspeed++;
+                coinspeed++;
                 dificulty += 1000;
             }
         }
         void Gameover()
         {
-            if (playercar.Bounds.IntersectsWith(enemycar1.Bounds) || playercar.Bounds.IntersectsWith(enemycar2.Bounds) || playercar.Bounds.IntersectsWith(enemycar3.Bounds))
+            if (godmode == 0) 
             {
-                death++;
-                deathcounter.Text = Convert.ToString(death);
-
-                timer1.Enabled = false;
-                gameover.Visible = true;
-                startlabel.Visible = true;
-                travelrecordlabel.Visible = true;
-                travelrecord.Visible = true;
-                labelsound.Visible = true;
-                labelsoundtoggle.Visible = true;
-                labelmusic.Visible = true;
-                labelmusictoggle.Visible = true;
-                if (traveldistance > distancerecord)
+                if (playercar.Bounds.IntersectsWith(enemycar1.Bounds) || playercar.Bounds.IntersectsWith(enemycar2.Bounds) || playercar.Bounds.IntersectsWith(enemycar3.Bounds))
                 {
-                    distancerecord = traveldistance;
-                    travelrecord.Text = Convert.ToString(distancerecord);
-                    Writerecord();
-                    if (playsounds == 1)
+                    death++;
+                    deathcounter.Text = Convert.ToString(death);
+
+                    timer1.Enabled = false;
+                    gameover.Visible = true;
+                    startlabel.Visible = true;
+                    travelrecordlabel.Visible = true;
+                    travelrecord.Visible = true;
+                    labelsound.Visible = true;
+                    labelsoundtoggle.Visible = true;
+                    labelmusic.Visible = true;
+                    labelmusictoggle.Visible = true;
+                    if (traveldistance > distancerecord)
                     {
-                        Play(Application.StartupPath + "Sounds\\fanfare.wav");
+                        distancerecord = traveldistance;
+                        travelrecord.Text = Convert.ToString(distancerecord);
+                        Writerecord();
+                        if (playsounds == 1)
+                        {
+                            Play(Application.StartupPath + "Sounds\\fanfare.wav");
+                        }
                     }
                 }
             }
@@ -328,12 +338,18 @@ namespace CarGame
                 if (carspeed <= 0)
                 {
                     carspeed = 0;
+                    coinspeed = 0;
                     return;
                 }
                 carspeed += -2;
-                if (enemyspeed <= 2) return;
-                enemyspeed += -2;
-                coinspeed += -2;
+                if (enemyspeed < 2)
+                {
+                    enemyspeed += -2;
+                }
+                if (coinspeed < 2)
+                {
+                    coinspeed += -2;
+                }
             }
             if (e.KeyCode == Keys.Space)
             {
@@ -377,6 +393,17 @@ namespace CarGame
                 distancerecord = 0;
                 Writerecord();
                 Readrecord();
+            }
+            if (e.KeyCode == Keys.G)
+            {
+                if (godmode == 0)
+                {
+                    godmode = 1;
+                }
+                if (godmode == 1)
+                {
+                    godmode = 0;
+                }
             }
         }
     }

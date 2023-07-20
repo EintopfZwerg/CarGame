@@ -1,4 +1,4 @@
--Car kollisionen verhindern
+-Transparenz überarbeiten
 -funktion für Coins einfügen
 	verhindert steigen des schwierigkeitsgrades?
 	
