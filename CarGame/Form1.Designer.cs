@@ -301,9 +301,9 @@
             labelmusic.Font = new Font("Showcard Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             labelmusic.Location = new Point(117, 337);
             labelmusic.Name = "labelmusic";
-            labelmusic.Size = new Size(112, 23);
+            labelmusic.Size = new Size(117, 23);
             labelmusic.TabIndex = 21;
-            labelmusic.Text = "(M)Music:";
+            labelmusic.Text = "(M)Music: ";
             // 
             // labelmusictoggle
             // 

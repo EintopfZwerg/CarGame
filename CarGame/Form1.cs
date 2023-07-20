@@ -21,7 +21,7 @@ namespace CarGame
         int distancetimer = 0;  // zur Steuerung der zurückgelegten distanz
         int distancerecord = 0; // Rekord der erreichten Distanz
         int dificulty = 1000;   // Entfernung nach der sich die Geschwindigkeit erhöht
-        
+
         private SoundPlayer player = new SoundPlayer("Sounds\\music.wav");
 
         int playmusic = 0;
@@ -119,7 +119,7 @@ namespace CarGame
         }
         void Gameover()
         {
-            if (godmode == 0) 
+            if (godmode == 0)
             {
                 if (playercar.Bounds.IntersectsWith(enemycar1.Bounds) || playercar.Bounds.IntersectsWith(enemycar2.Bounds) || playercar.Bounds.IntersectsWith(enemycar3.Bounds))
                 {
@@ -335,7 +335,7 @@ namespace CarGame
             }
             if (e.KeyCode == Keys.Down || e.KeyCode == Keys.S) // Auto bremst
             {
-                if (carspeed <= 0)
+                if (carspeed <= 2)
                 {
                     carspeed = 0;
                     coinspeed = 0;
@@ -361,7 +361,7 @@ namespace CarGame
                 {
                     playmusic = 1;
                     labelmusictoggle.Text = "ON";
-                    player.Play();
+                    player.PlayLooping();
                     return;
                 }
                 if (playmusic == 1)
