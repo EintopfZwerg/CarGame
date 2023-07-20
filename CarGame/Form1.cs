@@ -35,7 +35,7 @@ namespace CarGame
             Writerecord();
             gameover.Visible = false;
             travelrecord.Visible = false;
-            travelrecordlabel.Visible = false;            
+            travelrecordlabel.Visible = false;
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -126,7 +126,7 @@ namespace CarGame
                 labelsoundtoggle.Visible = true;
                 labelmusic.Visible = true;
                 labelmusictoggle.Visible = true;
-                if (traveldistance > distancerecord )
+                if (traveldistance > distancerecord)
                 {
                     distancerecord = traveldistance;
                     travelrecord.Text = Convert.ToString(distancerecord);
@@ -301,14 +301,12 @@ namespace CarGame
                     }
                 }
             }
-
             if (e.KeyCode == Keys.Up || e.KeyCode == Keys.W) // Auto beschleunigt
             {
                 carspeed += 2;
                 enemyspeed += 2;
                 coinspeed += 2;
             }
-
             if (e.KeyCode == Keys.Down || e.KeyCode == Keys.S) // Auto bremst
             {
                 if (carspeed <= 0)
@@ -324,7 +322,6 @@ namespace CarGame
             if (e.KeyCode == Keys.Space)
             {
                 Restart();
-
             }
             if (e.KeyCode == Keys.M)
             {
@@ -342,7 +339,6 @@ namespace CarGame
                     player.Stop();
                     return;
                 }
-
             }
             if (e.KeyCode == Keys.N)
             {
@@ -367,6 +363,5 @@ namespace CarGame
                 Readrecord();
             }
         }
-
     }
 }
