@@ -119,8 +119,11 @@ namespace CarGame
         }
         void Gameover()
         {
-            if (godmode == 0)
+            if (godmode == 1)
             {
+                return; 
+            }
+
                 if (playercar.Bounds.IntersectsWith(enemycar1.Bounds) || playercar.Bounds.IntersectsWith(enemycar2.Bounds) || playercar.Bounds.IntersectsWith(enemycar3.Bounds))
                 {
                     death++;
@@ -146,7 +149,6 @@ namespace CarGame
                         }
                     }
                 }
-            }
         }
         void Restart()
         {
@@ -399,6 +401,7 @@ namespace CarGame
                 if (godmode == 0)
                 {
                     godmode = 1;
+                    return;
                 }
                 if (godmode == 1)
                 {
