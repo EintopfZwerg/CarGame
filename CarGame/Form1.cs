@@ -11,10 +11,10 @@ namespace CarGame
 
         static string gametitel = "CarGameV0.4.1";
         string filepath = System.Reflection.Assembly.GetExecutingAssembly().Location + ".txt"; // Pfad der exe datei
-        int carspeed = 6;       // geschwindigkeit der Linien
-        int enemyspeed = 3;     // geschwindigkeit der Gegnerischen Autos
+        int carspeed = 4;       // geschwindigkeit der Linien
+        int enemyspeed = 6;     // geschwindigkeit der Gegnerischen Autos
         int carmoveside = 8;    // Auto seitwärtsbewegung
-        int coinspeed = 2;
+        int coinspeed = 4;      // geschwindigkeit der Coins
         int coins = 0;          // Anzahl eingesammelter Coins
         int death = 0;          // Anzahl tode
         int traveldistance = 0; // erreichte Distanz
@@ -113,7 +113,6 @@ namespace CarGame
             if (i > dificulty)
             {
                 enemyspeed++;
-                coinspeed++;
                 dificulty += 1000;
             }
         }
@@ -121,34 +120,34 @@ namespace CarGame
         {
             if (godmode == 1)
             {
-                return; 
+                return;
             }
 
-                if (playercar.Bounds.IntersectsWith(enemycar1.Bounds) || playercar.Bounds.IntersectsWith(enemycar2.Bounds) || playercar.Bounds.IntersectsWith(enemycar3.Bounds))
-                {
-                    death++;
-                    deathcounter.Text = Convert.ToString(death);
+            if (playercar.Bounds.IntersectsWith(enemycar1.Bounds) || playercar.Bounds.IntersectsWith(enemycar2.Bounds) || playercar.Bounds.IntersectsWith(enemycar3.Bounds))
+            {
+                death++;
+                deathcounter.Text = Convert.ToString(death);
 
-                    timer1.Enabled = false;
-                    gameover.Visible = true;
-                    startlabel.Visible = true;
-                    travelrecordlabel.Visible = true;
-                    travelrecord.Visible = true;
-                    labelsound.Visible = true;
-                    labelsoundtoggle.Visible = true;
-                    labelmusic.Visible = true;
-                    labelmusictoggle.Visible = true;
-                    if (traveldistance > distancerecord)
+                timer1.Enabled = false;
+                gameover.Visible = true;
+                startlabel.Visible = true;
+                travelrecordlabel.Visible = true;
+                travelrecord.Visible = true;
+                labelsound.Visible = true;
+                labelsoundtoggle.Visible = true;
+                labelmusic.Visible = true;
+                labelmusictoggle.Visible = true;
+                if (traveldistance > distancerecord)
+                {
+                    distancerecord = traveldistance;
+                    travelrecord.Text = Convert.ToString(distancerecord);
+                    Writerecord();
+                    if (playsounds == 1)
                     {
-                        distancerecord = traveldistance;
-                        travelrecord.Text = Convert.ToString(distancerecord);
-                        Writerecord();
-                        if (playsounds == 1)
-                        {
-                            Play(Application.StartupPath + "Sounds\\fanfare.wav");
-                        }
+                        Play(Application.StartupPath + "Sounds\\fanfare.wav");
                     }
                 }
+            }
         }
         void Restart()
         {
@@ -164,9 +163,9 @@ namespace CarGame
             traveldistance = 0;
             coins = 0;
             coincounter.Text = Convert.ToString(coins);
-            carspeed = 6;
-            enemyspeed = 3;
-            coinspeed = 2;
+            carspeed = 4;
+            enemyspeed = 6;
+            coinspeed = 4;
             dificulty = 1000;
             enemycar1.Top = -100;
             enemycar2.Top = -120;

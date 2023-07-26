@@ -1,4 +1,6 @@
 -Transparenz überarbeiten
 -funktion für Coins einfügen
+	Coin Random position start
 	verhindert steigen des schwierigkeitsgrades?
+
 	
